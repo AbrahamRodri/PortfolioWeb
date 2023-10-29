@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <title>Abraham.dev</title>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('index') }}"><h1 class="title"> Abraham.dev</h1></a>
+        <nav>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('project') }}">Projects</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <section>
+        <div class="bio">
+            <div class="bio-text">
+                <h1 class="bio-text-title">Interview Me</h1>
+                <form method="POST" action="{{ url_for('project') }}">
+                    <label for="question">Ask a question:</label>
+                    <input type="text" id="question" name="question">
+                    <button type="submit">Submit</button>
+                </form>
+                
+                {% if question %}
+                <h2>Your Question:</h2>
+                <p>{{ question }}</p>
+                
+                <h2>Answer:</h2>
+                <p>{{ answer }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <footer>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+  max-width: 100%;
+}
+
+/* Header Styles */
+header {
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: large;
+}
+
+nav {
+  display: flex;
+}
+
+/* Link Styles */
+a {
+  margin: 0 .7rem;
+  font-weight:bolder;
+  font-size: 1rem;
+}
+
+nav a:hover{
+  color: #007BFF;
+}
+
+a:first-child {
+  margin-left: 0;
+}
+
+/* Title Styles */
+.title {
+  font-weight:bolder;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Section Styles */
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Bio Section Styles */
+.bio {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.bio-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
+  max-width:60%;
+}
+
+.bio-text-title {
+  font-size: 3rem;
+  padding: 1rem 0;
+}
+
+.bio-image {
+  max-width: 20%;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.5);
+}
+
+/* Text Styles */
+.ptext {
+  padding: 1rem 0;
+  font-weight: 300;
+  line-height: 1.8; /* Better readability */
+
+}
+
+/* Tech Stack Container */
+.tech-stack {
+  display: flex;
+  flex-direction: row;  
+  align-items: center;  
+  padding: 0rem 3rem; 
+  padding-top: 3rem;
+  width:65%;
+  margin: auto; 
+  white-space: nowrap;
+}
+
+.tech-stack-title {
+  display: flex;
+  align-items: center;  /* to vertically center the line with the text */
+  justify-content: space-between; /* optional, in case you want space between text and line */
+}
+
+.tech-stack-title::after {
+  content: "\00A0";
+  height: 60%;  /* adjust the height as per your requirement */
+  width: 1px;
+  background-color: #606060;  /* adjust the color as per your requirement */
+  display: inline-block;
+  margin-left: 20px; /* space from the title */
+  margin-right: 20px; 
+  vertical-align: middle; 
+}
+
+
+/* Tech Icons Styles */
+.tech-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  width: 100%; 
+}
+
+.tech-icons img {
+  width: 30px;
+  margin: 2rem;
+  transition: 0.3s;
+}
+
+.tech-icons img:hover {
+  transform: scale(1.1); 
+}
+
+/* Social Icons Styles */
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.social-icons img {
+  transition: 0.3s;
+  width: 24px;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* Adjusting header styles for mobile view */
+  header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  
+  nav a {
+      margin: 0.5rem 0;
+      padding: .5rem;
+  }
+
+  /* Bio section adjustments */
+  .bio {
+      flex-direction: column-reverse; /* Change to column and reverse order so image is on top */
+  }
+
+  .bio-text {
+      padding: 0 1rem;
+      text-align: center;
+  }
+
+  .bio-image {
+      max-width: 60%; /* Adjust image size for mobile */
+      margin-top: 1rem;
+  }
+
+  /* Tech Stack adjustments */
+  .tech-stack {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .tech-icons img {
+      margin: 0.5rem;
+  }
+}
