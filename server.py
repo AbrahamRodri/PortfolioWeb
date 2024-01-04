@@ -7,10 +7,22 @@ from app import get_answer_from_db, get_response_using_openai
 
 app = Flask(__name__)
 
+def get_all_questions():
+    conn = sqlite3.connect('interview_data.db')
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT keyword FROM personal_info UNION SELECT question FROM interview_qa")
+    questions = cursor.fetchall()
+    
+    conn.close()
+    return [q[0] for q in questions]
+
 @app.route('/project', methods=['GET', 'POST'])
 def project():
     question = ""
     answer = ""
+    questions = get_all_questions()
+
     if request.method == 'POST':
         user_query = request.form.get('question')
 
@@ -23,7 +35,7 @@ def project():
         question = user_query
         conn.close()
 
-    return render_template('projects.html', question=question, answer=answer)
+    return render_template('projects.html', question=question, answer=answer, questions=questions)
 
 
 @app.route('/about')

@@ -31,8 +31,6 @@ def print_all_data_from_table(table_name):
         
     conn.close()
 
-insert_into_personal_info("Where is Abraham from?", "The context is that abraham, who you are an assistant answering questions for, lives in fresno california." )
-
 
 
 # Example usage:

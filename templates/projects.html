@@ -40,6 +40,20 @@
             </div>
         </div>
     </section>
+    <section>
+        <h2>About this Project</h2> <br>
+        <p>This is my first time using any api, I attempt to make an interview bot with knowledge about me and respond dynamically. It currently has the limitations of the chatgpt now wanting to share personal information as well as the prompt given to it not being the most effiecent. Also in hindsight I couldve better used ChatGPT's built in NLP to take the question and respond accordingly however with no direction and will to just start this and try to learn on the go I overlooked this. If you would like to use this program please choose from available questions.</p>
+    </section>
+    <section>
+        <div class="questions-list">
+            <h2>Available Questions:</h2>
+            <ul>
+                {% for question in questions %}
+                    <li>{{ question }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
     <footer>
     </footer>
 </body>
