@@ -20,13 +20,14 @@
             <a href="{{ url_for('contact') }}">Contact</a>
         </nav>
     </header>
+    <div class = "column">
     <section>
         <div class="bio">
             <div class="bio-text">
                 <h1 class="bio-text-title">Interview Me</h1>
                 <form method="POST" action="{{ url_for('project') }}">
                     <label for="question">Ask a question:</label>
-                    <input type="text" id="question" name="question">
+                    <input type="text" id="question" name="question" placeholder="Type here">
                     <button type="submit">Submit</button>
                 </form>
                 
@@ -44,17 +45,24 @@
         <h2>About this Project</h2> <br>
         <p>This is my first time using any api, I attempt to make an interview bot with knowledge about me and respond dynamically. It currently has the limitations of the chatgpt now wanting to share personal information as well as the prompt given to it not being the most effiecent. Also in hindsight I couldve better used ChatGPT's built in NLP to take the question and respond accordingly however with no direction and will to just start this and try to learn on the go I overlooked this. If you would like to use this program please choose from available questions.</p>
     </section>
+</div>
     <section>
         <div class="questions-list">
             <h2>Available Questions:</h2>
             <ul>
                 {% for question in questions %}
-                    <li>{{ question }}</li>
+                    <li><button onclick="setQuestion('{{ question }}')">{{ question }}</button></li>
                 {% endfor %}
             </ul>
         </div>
     </section>
+
     <footer>
     </footer>
+    <script>
+        function setQuestion(question) {
+            document.getElementById('question').value = question;
+        }
+    </script>
 </body>
 </html>
