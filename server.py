@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import os
 import openai
 import sqlite3
+from flask import redirect, url_for, flash
+from mail_helper import send_email
 
 from app import get_answer_from_db, get_response_using_openai
 
