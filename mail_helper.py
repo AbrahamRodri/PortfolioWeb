@@ -4,10 +4,10 @@ import smtplib
 from email.mime.text import MIMEText
 
 def send_email(name, email, message):
-    from_email = "your_email@example.com"  # Replace with your actual email
-    app_password = "your_app_password"      # Replace with your app-specific password
+    from_email = "rodriguez.abraham6369@gmail.com"  # Replace with your actual email
+    app_password = "wuas ctsy jdfk duxr"
 
-    to_email = "rodriguez.abrahamdev@gmail.com"
+    to_email = "rodriguez.abraham63@outlook.com"
     subject = "New contact form submission"
     body = f"Name: {name}\nEmail: {email}\nMessage: {message}"
 

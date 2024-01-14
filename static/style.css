@@ -233,3 +233,11 @@ section {
   display:flex;
   flex-direction: row;
 }
+
+#calendar{
+  width: 80%;
+}
+.calendar{
+  display:flex;
+  justify-content: center;
+}

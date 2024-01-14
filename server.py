@@ -1,13 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request , jsonify
 import os
 import openai
 import sqlite3
 from flask import redirect, url_for, flash
 from mail_helper import send_email
 
+from quickstart import main
+
 from app import get_answer_from_db, get_response_using_openai
 
 app = Flask(__name__)
+
+app.secret_key = os.urandom(24)
 
 def get_all_questions():
     conn = sqlite3.connect('interview_data.db')
@@ -18,6 +22,23 @@ def get_all_questions():
     
     conn.close()
     return [q[0] for q in questions]
+
+
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    # Get the form data
+    name = request.form.get('name')
+    email = request.form.get('email')
+    message = request.form.get('message')
+
+    # Send the email
+    send_email(name, email, message) 
+
+    # Flash a success message or handle as necessary
+    flash('Thank you for your message. We will be in touch soon!')
+
+    # Redirect back to the contact page or a 'thank you' page
+    return redirect(url_for('contact'))
 
 @app.route('/project', methods=['GET', 'POST'])
 def project():
@@ -52,6 +73,17 @@ def index():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/get-events')
+def get_events():
+    
+    events = main()
+
+
+    return jsonify(events)
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
 if __name__ == "__main__":
