@@ -1,0 +1,46 @@
+# Secret keys and credentials
+service_account.json
+token.json
+credentials.json
+API_KEY
+*.env
+
+# SQLite database files
+*.db
+*.sqlite3
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.virtualenvs/
+
+# Development tools settings
+.idea/
+.vscode/
+*.swp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Python file patterns to ignore
+*.pyo
+*.pyc
+
+# Other files that should be ignored
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.seed
+*.db-journal
+*.sqlite-journal
+
+# Directories to ignore
+__pycache__
