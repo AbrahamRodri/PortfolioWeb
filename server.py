@@ -16,10 +16,10 @@ app.secret_key = os.urandom(24)
 def get_all_questions():
     conn = sqlite3.connect('interview_data.db')
     cursor = conn.cursor()
-    
+
     cursor.execute("SELECT keyword FROM personal_info UNION SELECT question FROM interview_qa")
     questions = cursor.fetchall()
-    
+
     conn.close()
     return [q[0] for q in questions]
 
@@ -32,7 +32,7 @@ def submit_form():
     message = request.form.get('message')
 
     # Send the email
-    send_email(name, email, message) 
+    send_email(name, email, message)
 
     # Flash a success message or handle as necessary
     flash('Thank you for your message. We will be in touch soon!')
@@ -51,32 +51,28 @@ def project():
 
         conn = sqlite3.connect('interview_data.db')
         cursor = conn.cursor()
-        
+
         context = get_answer_from_db(user_query, cursor)
         answer = get_response_using_openai(user_query, context)
-        
+
         question = user_query
         conn.close()
 
     return render_template('projects.html', question=question, answer=answer, questions=questions)
 
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/contact')
+@app.route('/calendar')
 def contact():
-    return render_template('contact.html')
+    return render_template('calendar.html')
 
 @app.route('/get-events')
 def get_events():
-    
+
     events = main()
 
 

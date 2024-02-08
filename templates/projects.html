@@ -15,9 +15,8 @@
     <header>
         <a href="{{ url_for('index') }}"><h1 class="title"> Abraham.dev</h1></a>
         <nav>
-            <a href="{{ url_for('about') }}">About</a>
             <a href="{{ url_for('project') }}">Projects</a>
-            <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('calendar') }}">Contact</a>
         </nav>
     </header>
     <div class = "column">
@@ -30,11 +29,11 @@
                     <input type="text" id="question" name="question" placeholder="Type here">
                     <button type="submit">Submit</button>
                 </form>
-                
+
                 {% if question %}
                 <h2>Your Question:</h2>
                 <p>{{ question }}</p>
-                
+
                 <h2>Answer:</h2>
                 <p>{{ answer }}</p>
                 {% endif %}
@@ -51,7 +50,7 @@
             <h2>Available Questions:</h2>
             <ul>
                 {% for question in questions %}
-                    <li><button onclick="setQuestion('{{ question }}')">{{ question }}</button></li>
+                    <li><button onclick='setQuestion({{ question|tojson|safe }})'>{{ question }}</button></li>
                 {% endfor %}
             </ul>
         </div>
