@@ -27,43 +27,37 @@
     </header>
 
     <section>
-        <div class="bio">
-            <div class="bio-text">
-                <h1 class="bio-text-title">Contact Me</h1>
-                <form action="/submit_form" method="POST">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+            <h1 class="bio-text-title">Request Call Time</h1>
+            <form action="/submit_form" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
 
-                    <button type="submit">Send</button>
-                </form>
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
 
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/your_username" target="_blank">
-                        <img src="{{ url_for('static', filename='images/linkedin.png') }}" alt="LinkedIn">
-                    </a>
-                    <a href="https://github.com/your_username" target="_blank">
-                        <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub">
-                    </a>
-                </div>
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="message">Additional Information:</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Request Appointment</button>
+            </form>
+
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/your_username" target="_blank">
+                    <img src="{{ url_for('static', filename='images/linkedin.png') }}" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/your_username" target="_blank">
+                    <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub">
+                </a>
             </div>
-            <img src="{{ url_for('static', filename='images/Mona_Lisa-restored.jpg') }}" alt="Mona Lisa" class="bio-image">
-        </div>
-
-        <div class="tech-stack">
-            <h5>Tech Stack</h5>
-            <div class="tech-icons">
-                <img src="{{ url_for('static', filename='images/002-html.png') }}" alt="HTML Icon">
-                <img src="{{ url_for('static', filename='images/003-css-3.png') }}" alt="CSS Icon">
-                <img src="{{ url_for('static', filename='images/c-.png') }}" alt="C++ Icon">
-                <img src="{{ url_for('static', filename='images/004-python.png') }}" alt="Python Icon">
-            </div>
-        </div>
     </section>
     <div class = "calendar">
     <div id='calendar'></div>

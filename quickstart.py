@@ -6,12 +6,29 @@ from googleapiclient.errors import HttpError
 # Path to the service account key file
 SERVICE_ACCOUNT_FILE = '/home/rodriguezabrahamdev/service_account.json'
 # Scopes required for the calendar access
-SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
+SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
+
 
 # Authenticate and create a service object
 credentials = service_account.Credentials.from_service_account_file(
     SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 service = build('calendar', 'v3', credentials=credentials)
+
+def add_event_to_calendar(summary, start_datetime, end_datetime, description):
+    """Adds an event to the Google Calendar."""
+    event = {
+        'summary': summary,
+        'description': description,
+        'start': {'dateTime': start_datetime.isoformat(), 'timeZone': 'America/Los_Angeles'},  # Add timeZone
+        'end': {'dateTime': end_datetime.isoformat(), 'timeZone': 'America/Los_Angeles'},  # Add timeZone
+    }
+
+    try:
+        event = service.events().insert(calendarId='rodriguez.abraham6369@gmail.com', body=event).execute()
+        return event.get('id')
+    except HttpError as error:
+        print(f"An error occurred: {error}")
+        return None
 
 def main():
     """Shows basic usage of the Google Calendar API.
